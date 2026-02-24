@@ -67,10 +67,13 @@ form.addEventListener("submit", async (e) => {
     const fd = new FormData();
 
     // DATOS GENERALES
-    fd.append("nombreCompleto", document.getElementById("nombreCompleto").value.trim());
+    fd.append("nombres", document.getElementById("nombres").value.trim());
+    fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim());
+    fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim());
     fd.append("cargo", document.getElementById("cargo").value.trim());
-    fd.append("programa", document.getElementById("programa").value);
     fd.append("condicionLaboral", document.getElementById("condicionLaboral").value);
+    fd.append("programa", document.getElementById("programa").value);
+    fd.append("celular", document.getElementById("celular").value.trim());
 
     // FORMACIÓN ACADÉMICA
     fd.append("gradoTitulo", document.getElementById("gradoTitulo").value.trim());
@@ -120,3 +123,4 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
