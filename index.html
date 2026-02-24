@@ -29,31 +29,25 @@
           </div>
         </div>
 
-        <div>
+        <div class="full">
           <label for="nombreCompleto">Nombre completo</label>
           <input id="nombreCompleto" name="nombreCompleto" type="text" required />
+        </div>
+
+        <div>
+          <label for="apellidoPaterno">Apellido paterno</label>
+          <input id="apellidoPaterno" name="apellidoPaterno" type="text" required>
+        </div>
+
+        <div>
+          <label for="apellidoMaterno">Apellido materno</label>
+          <input id="apellidoMaterno" name="apellidoMaterno" type="text" required>
         </div>
 
         <div>
           <label for="cargo">Cargo</label>
           <input id="cargo" name="cargo" type="text" value="Docente" required />
         </div>
-
-<div>
-  <label for="programas">Programa(s) de estudio</label>
-  <select id="programas" name="programas" required>
-    <option value="Asistencia Administrativa">Asistencia Administrativa</option>
-    <option value="Contabilidad">Contabilidad</option>
-    <option value="Desarrollo de Sistemas de Información">Desarrollo de Sistemas de Información</option>
-    <option value="Enfermera Técnica">Enfermera Técnica</option>
-    <option value="Explotación Minera">Explotación Minera</option>
-    <option value="Laboratorio Clínico y Anatomía Patológica">Laboratorio Clínico y Anatomía Patológica</option>
-    <option value="Mecánica de Producción Industrial">Mecánica de Producción Industrial</option>
-    <option value="Mecatrónica Automotriz">Mecatrónica Automotriz</option>
-    <option value="Prótesis Dental">Prótesis Dental</option>
-    <option value="Empleabilidad">Prótesis Dental</option>
-  </select>
-</div>
 
         <div>
           <label for="condicionLaboral">Condición laboral</label>
@@ -62,6 +56,30 @@
             <option value="Nombrado">Nombrado</option>
             <option value="Contratado">Contratado</option>
           </select>
+        </div>
+      
+        <div>
+          <label for="programas">Programa(s) de estudio</label>
+          <select id="programas" name="programas" required>
+            <option value="Asistencia Administrativa">Asistencia Administrativa</option>
+            <option value="Contabilidad">Contabilidad</option>
+            <option value="Desarrollo de Sistemas de Información">Desarrollo de Sistemas de Información</option>
+            <option value="Enfermera Técnica">Enfermera Técnica</option>
+            <option value="Explotación Minera">Explotación Minera</option>
+            <option value="Laboratorio Clínico y Anatomía Patológica">Laboratorio Clínico y Anatomía Patológica</option>
+            <option value="Mecánica de Producción Industrial">Mecánica de Producción Industrial</option>
+            <option value="Mecatrónica Automotriz">Mecatrónica Automotriz</option>
+            <option value="Prótesis Dental">Prótesis Dental</option>
+            <option value="Empleabilidad">Prótesis Dental</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="celular">Número de celular</label>
+          <input id="celular" name="celular" type="tel" 
+                placeholder="Ejm: 987654321"
+                pattern="[0-9]{9}" 
+                required>
         </div>
 
       </div>
@@ -112,3 +130,4 @@
     </form>
 
   </div>
+
