@@ -1,0 +1,26 @@
+    body { font-family: system-ui, Arial, sans-serif; background:#f6f7fb; margin:0; padding:24px; box-sizing: border-box;}
+    .card { max-width: 860px; margin: 0 auto; background:#fff; border-radius:14px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,.08); }
+    h1 { font-size: 20px; margin:0 0 12px; }
+    h2 { font-size: 16px; margin:18px 0 10px; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    label { display:block; font-size:13px; margin:0 0 6px; color:#333; }
+    input, select, textarea {
+      width:98%; padding:10px 12px; border:1px solid #d8dbe6; border-radius:10px;
+      font-size:14px; background:#fff;
+    }
+    textarea { min-height: 92px; resize: vertical; }
+    .hint { font-size:12px; color:#666; margin-top:6px; }
+    .declaracion-wrap {   display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 14px; }
+    .declaracion-wrap input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
+    .actions { margin-top:16px; display:flex; gap:10px; align-items:center; }
+    button {
+      border:0; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+      background:#1a73e8; color:#fff;
+    }
+    button:disabled { opacity:.6; cursor:not-allowed; }
+    .status { font-size:13px; }
+    .full { grid-column: 1 / -1; }
+    .preview { display:flex; gap:12px; align-items:center; margin-top:8px; }
+    .preview img { width:64px; height:64px; border-radius:12px; object-fit:cover; border:1px solid #e3e6f1; }
+    .badge { display:inline-block; padding:3px 8px; border-radius:999px; background:#eef3ff; color:#1a73e8; font-size:12px; }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
