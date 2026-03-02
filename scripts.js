@@ -1,7 +1,7 @@
 /* ============================================
    CONFIGURACIÓN (se activará luego con n8n)
 ============================================ */
-const N8N_WEBHOOK_URL = "https://dayvisfarfan.app.n8n.cloud/webhook/cvdocente"; 
+const N8N_WEBHOOK_URL = "https://dayvisfarfan.app.n8n.cloud/webhook-test/cvdocente"; 
 
 /* ============================================
    ELEMENTOS
@@ -123,5 +123,6 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
 
