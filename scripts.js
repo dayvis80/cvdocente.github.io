@@ -67,12 +67,12 @@ form.addEventListener("submit", async (e) => {
     const fd = new FormData();
 
     // DATOS GENERALES
-    fd.append("nombres", document.getElementById("nombres").value.trim());
+    fd.append("nombres", document.getElementById("nombreCompleto").value.trim());
     fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim());
     fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim());
     fd.append("cargo", document.getElementById("cargo").value.trim());
     fd.append("condicionLaboral", document.getElementById("condicionLaboral").value);
-    fd.append("programa", document.getElementById("programa").value);
+    fd.append("programa", document.getElementById("programas").value);
     fd.append("celular", document.getElementById("celular").value.trim());
 
     // FORMACIÓN ACADÉMICA
@@ -83,10 +83,6 @@ form.addEventListener("submit", async (e) => {
     // EXPERIENCIA DOCENTE
     fd.append("aniosExperiencia", document.getElementById("aniosExperiencia").value);
     fd.append("institucionesDocencia", document.getElementById("institucionesDocencia").value.trim());
-
-    // EMPLEABILIDAD
-    fd.append("empleabilidad", document.getElementById("empleabilidad").value);
-    fd.append("detalleEmpleabilidad", document.getElementById("detalleEmpleabilidad").value.trim());
 
     // DECLARACIÓN JURADA
     fd.append("declaracionJurada", "true");
@@ -123,6 +119,7 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
 
 
