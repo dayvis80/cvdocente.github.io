@@ -127,7 +127,7 @@ form.addEventListener("submit", async (e) => {
      inst: document.getElementById("institucionOtorgante").value.trim(),
      anios: document.getElementById("aniosExperiencia").value,
      instDoc: document.getElementById("institucionesDocencia").value.trim(),
-//     foto_url: payload?.data?.foto_url || ""
+     foto_url: payload?.data?.foto_url || ""
    });
 
    // Limpiar formulario (opcional)
@@ -144,6 +144,7 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
 
 
