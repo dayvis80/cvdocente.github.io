@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Registro exitoso</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .success-title { margin: 0 0 10px; font-size: 22px; }
+    .success-sub { margin: 0 0 14px; color: #555; }
+    .sheet {
+      margin-top: 12px;
+      border: 1px solid #d8dbe6;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .sheet table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .sheet td { padding: 10px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .sheet td.key { width: 34%; font-weight: 650; background: #fafbff; }
+    .actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none;
+      background:#1a73e8; color:#fff; font-weight:600;
+    }
+    .btn.secondary { background:#6b7280; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="success-title">REGISTRO CV DOCENTE EXITOSO</h1>
+    <p class="success-sub">Se registro correctamente sus datos. Guarde o revise el resumen.</p>
+
+    <div class="sheet" id="sheet"></div>
+
+    <div class="actions">
+      <a class="btn" href="./index.html">Registrar otro CV Docente</a>
+      <a class="btn secondary" href="#" id="downloadJson">Descargar JSON</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    // Campos a mostrar (ordenados)
+    const rows = [
+      ["Nombres", params.get("nombres")],
+      ["Apellido paterno", params.get("ap")],
+      ["Apellido materno", params.get("am")],
+      ["Celular", params.get("celular")],
+      ["Programa", params.get("programa")],
+      ["Condición laboral", params.get("cond")],
+      ["Cargo", params.get("cargo")],
+      ["Grado/Título", params.get("grado")],
+      ["Especialidad", params.get("esp")],
+      ["Institución otorgante", params.get("inst")],
+      ["Años de experiencia", params.get("anios")],
+      ["Instituciones de docencia", params.get("instDoc")],
+      ["Empleabilidad", params.get("emp")],
+      ["Detalle empleabilidad", params.get("empDet")],
+      ["Foto (URL)", params.get("foto_url")]
+    ];
+
+    // Render tabla
+    let html = `<table>`;
+    for (const [k, v] of rows) {
+      const value = (v ?? "").trim();
+      html += `
+        <tr>
+          <td class="key">${k}</td>
+          <td>${value ? escapeHtml(value) : "-"}</td>
+        </tr>`;
+    }
+    html += `</table>`;
+    document.getElementById("sheet").innerHTML = html;
+
+    // Descargar JSON
+    document.getElementById("downloadJson").addEventListener("click", (e) => {
+      e.preventDefault();
+      const obj = {};
+      for (const [k, v] of rows) obj[k] = v ?? "";
+      const blob = new Blob([JSON.stringify(obj, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "registro_docente.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    function escapeHtml(str) {
+      return str
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>
