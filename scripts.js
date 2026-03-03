@@ -107,11 +107,37 @@ form.addEventListener("submit", async (e) => {
       body: fd
     });
 
-    if (!res.ok) throw new Error("Error al enviar datos");
+   const payload = await res.json().catch(() => ({}));
 
-    statusEl.textContent = "Datos enviados correctamente.";
-    form.reset();
-    previewWrap.style.display = "none";
+   if (!res.ok) {
+     throw new Error(payload?.message || "Error al enviar datos");
+   }
+
+   // Construir parámetros para success.html
+   const qp = new URLSearchParams({
+     nombres: document.getElementById("nombres").value.trim(),
+     ap: document.getElementById("apellidoPaterno").value.trim(),
+     am: document.getElementById("apellidoMaterno").value.trim(),
+     celular: document.getElementById("celular").value.trim(),
+     programa: document.getElementById("programa").value,
+     cond: document.getElementById("condicionLaboral").value,
+     cargo: document.getElementById("cargo").value.trim(),
+     grado: document.getElementById("gradoTitulo").value.trim(),
+     esp: document.getElementById("especialidad").value.trim(),
+     inst: document.getElementById("institucionOtorgante").value.trim(),
+     anios: document.getElementById("aniosExperiencia").value,
+     instDoc: document.getElementById("institucionesDocencia").value.trim(),
+     emp: document.getElementById("empleabilidad").value,
+     empDet: document.getElementById("detalleEmpleabilidad").value.trim(),
+     foto_url: payload?.data?.foto_url || ""
+   });
+
+   // Limpiar formulario (opcional)
+   form.reset();
+   previewWrap.style.display = "none";
+
+   // Redireccionar a página de éxito
+   window.location.href = `success.html?${qp.toString()}`;
 
   } catch (err) {
     statusEl.textContent = "No se pudo enviar. Intente nuevamente.";
@@ -119,6 +145,7 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
 
 
