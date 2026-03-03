@@ -118,17 +118,15 @@ form.addEventListener("submit", async (e) => {
      nombres: document.getElementById("nombreCompleto").value.trim(),
      ap: document.getElementById("apellidoPaterno").value.trim(),
      am: document.getElementById("apellidoMaterno").value.trim(),
-     celular: document.getElementById("celular").value.trim(),
-     programa: document.getElementById("programa").value,
-     cond: document.getElementById("condicionLaboral").value,
      cargo: document.getElementById("cargo").value.trim(),
+     cond: document.getElementById("condicionLaboral").value,
+     programa: document.getElementById("programas").value,
+     celular: document.getElementById("celular").value.trim(),
      grado: document.getElementById("gradoTitulo").value.trim(),
      esp: document.getElementById("especialidad").value.trim(),
      inst: document.getElementById("institucionOtorgante").value.trim(),
      anios: document.getElementById("aniosExperiencia").value,
      instDoc: document.getElementById("institucionesDocencia").value.trim(),
-     emp: document.getElementById("empleabilidad").value,
-     empDet: document.getElementById("detalleEmpleabilidad").value.trim(),
      foto_url: payload?.data?.foto_url || ""
    });
 
@@ -145,3 +143,4 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
