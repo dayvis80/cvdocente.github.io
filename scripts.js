@@ -135,8 +135,8 @@ form.addEventListener("submit", async (e) => {
    previewWrap.style.display = "none";
 
    // Redireccionar a página de éxito
-   window.location.href = 'success.html';
-   //window.location.href = `success.html?${qp.toString()}`;
+   //window.location.href = 'success.html';
+   window.location.href = `success.html?${qp.toString()}`;
 
   } catch (err) {
     statusEl.textContent = "No se pudo enviar. Intente nuevamente.";
@@ -144,6 +144,7 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
 
 
