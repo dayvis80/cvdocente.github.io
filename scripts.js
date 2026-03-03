@@ -114,10 +114,10 @@ form.addEventListener("submit", async (e) => {
    }
 
    // Construir parámetros para success.html
-   const qp = new URLSearchParams({
-     nombres: document.getElementById("nombreCompleto").value.trim(),
-     ap: document.getElementById("apellidoPaterno").value.trim(),
-     am: document.getElementById("apellidoMaterno").value.trim()
+//   const qp = new URLSearchParams({
+//     nombres: document.getElementById("nombreCompleto").value.trim(),
+//     ap: document.getElementById("apellidoPaterno").value.trim(),
+//     am: document.getElementById("apellidoMaterno").value.trim(),
 //     cargo: document.getElementById("cargo").value.trim(),
 //     cond: document.getElementById("condicionLaboral").value,
 //     programa: document.getElementById("programas").value,
@@ -128,14 +128,15 @@ form.addEventListener("submit", async (e) => {
 //     anios: document.getElementById("aniosExperiencia").value,
 //     instDoc: document.getElementById("institucionesDocencia").value.trim(),
 //     foto_url: payload?.data?.foto_url || ""
-   });
+//   });
 
    // Limpiar formulario (opcional)
    form.reset();
    previewWrap.style.display = "none";
 
    // Redireccionar a página de éxito
-   window.location.href = `success.html?${qp.toString()}`;
+   window.location.href = 'success.html';
+   //window.location.href = `success.html?${qp.toString()}`;
 
   } catch (err) {
     statusEl.textContent = "No se pudo enviar. Intente nuevamente.";
@@ -143,5 +144,6 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
 
