@@ -96,11 +96,11 @@ form.addEventListener("submit", async (e) => {
     if (foto) fd.append("foto", foto, foto.name);
 
     // ENVÍO (se activará cuando pongamos el webhook real)
-    if (N8N_WEBHOOK_URL.includes("REEMPLAZAR")) {
-      statusEl.textContent = "Formulario listo (aún no conectado a servidor).";
-      sendBtn.disabled = false;
-      return;
-    }
+//    if (N8N_WEBHOOK_URL.includes("REEMPLAZAR")) {
+//      statusEl.textContent = "Formulario listo (aún no conectado a servidor).";
+//      sendBtn.disabled = false;
+//      return;
+//    }
 
     const res = await fetch(N8N_WEBHOOK_URL, {
       method: "POST",
@@ -145,10 +145,3 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
-
-
-
-
-
-
-
