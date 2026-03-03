@@ -115,7 +115,7 @@ form.addEventListener("submit", async (e) => {
 
    // Construir parámetros para success.html
    const qp = new URLSearchParams({
-     nombres: document.getElementById("nombres").value.trim(),
+     nombres: document.getElementById("nombreCompleto").value.trim(),
      ap: document.getElementById("apellidoPaterno").value.trim(),
      am: document.getElementById("apellidoMaterno").value.trim(),
      celular: document.getElementById("celular").value.trim(),
@@ -145,6 +145,7 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
 
 
