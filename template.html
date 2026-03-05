@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoja de Vida Docente</title>
+  <link rel="stylesheet" href="template.css" />
+</head>
+<body>
+  <!--
+    PLANTILLA HTML (basada en tu DOCX)
+    Placeholders recomendados (desde n8n):
+      {{institucion}}
+      {{nombreCompleto}}  (o {{nombres}} si lo cambias luego)
+      {{apellido_paterno}}
+      {{apellido_materno}}
+      {{email}}
+      {{celular}}
+      {{cargo}}
+      {{programa}}
+      {{condicionLaboral}}
+      {{perfil}}
+      {{especialidad}}
+      {{gradoTitulo}}
+      {{institucionOtorgante}}
+      {{aniosExperiencia}}
+      {{institucionesDocencia}}
+      {{capacitaciones_html}}  (lista <li>...</li>)
+      {{experiencia_html}}     (lista <li>...</li>)
+      {{foto_url}}            (URL pública)
+  -->
+
+  <main class="page">
+    <header class="top">
+        <div class="logo">
+          <!-- Si tienes logo institucional, reemplaza este src -->
+          <img src="logo.png" />
+        </div>
+        <div class="tecno">
+          <div class="tecno1">INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO</div>
+          <div class="tecno2">“MANUEL NÚÑEZ BUTRÓN”</div>
+        </div>
+    </header>
+
+    <section class="layout">
+      <!-- Columna izquierda -->
+      <aside class="izq">
+      <div class="izq2">
+        <div class="foto">
+          <img src="{{foto_url}}" >
+        </div>
+
+        <div class="nombre">
+          <div class="">{{nombres}}</div>
+          <div class="">{{apaterno}} {{amaterno}}</div>
+        </div>
+
+        <hr>
+
+        <div class="contacto">
+          <div class="titulo">CONTACTO</div>
+          <div class="datosc">
+            <div class="alinearc"><img src="celular.svg" width="22px"></img><span class="textoc">+51 {{celular}}</span></div>
+            <div class="alinearc"><img src="email.svg" width="22px"></img><span class="textoc">{{email}}</span></div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="cargo">
+          <div class="titulo">CARGO</div>
+          <div class="texto">Docente {{condicionLaboral}} del Programa de Estudios de {{programas}}</div>
+        </div>
+
+        <hr>
+
+        <div class="perfil">
+          <div class="titulo">PERFIL PROFESIONAL</div>
+          <div class="texto">{{perfil_profesional}}</div>
+        </div>
+
+      </div>
+      </aside>
+
+      <!-- Columna derecha -->
+      <section class="right">
+
+        <div class="bloque">
+          <div class="titulob">FORMACIÓN</div>
+          <div class="subtitulob"> <img src="graduado.png" width="26px"> <span>&nbsp;ESPECIALIDAD</span></div>
+          <div class="textob">{{especialidad}}</div>
+          <div class="subtitulob"><img src="graduado.png" width="26px"> <span>&nbsp;GRADO ACADÉMICO DE MAESTRÍA</span></div>
+          <div class="textob">{{maestria}}</div>
+          <div class="subtitulob"><img src="graduado.png" width="26px"> <span>&nbsp;GRADO ACADÉMICO DE DOCTOR</span></div>
+          <div class="textob">{{doctorado}}</div>
+        </div>
+        
+
+        <div class="bloque">
+          <div class="titulob">EXPERIENCIA LABORAL</div>
+              <div class="textob">{{experiencia_laboral}}</div>
+          </div>
+
+        <div class="bloque">
+          <div class="titulob">CAPACITACIÓN</div>
+            <div class="textob">{{capacitacion}}</div>
+        </div>
+
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      
+    </footer>
+  </main>
+</body>
+</html>
