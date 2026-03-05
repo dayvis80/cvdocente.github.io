@@ -1,0 +1,51 @@
+/* Base */
+:root { --azul-oscuro: #1a4b8c; --azul-claro: #cfe5f4; --gris-texto: #333;}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f5f9;font-family: Calibri,Arial;color:#111}
+.page{width:794px; /* A4 ~ 96dpi */ height:1123px;margin:0px auto;background:#fff; overflow:hidden}
+
+.top{ height: 190px; width: 100%; background-color: var(--azul-oscuro); padding-bottom: 50px; display: flex; align-items: center;}
+
+.top .logo{width: 105px; height: 105px; margin-left: 70px;}
+
+.top .logo img{ width: 105px; height: 105px; text-transform:uppercase;}
+
+.tecno1 {font-size:20px;line-height:1.15; color: #FFF; text-shadow: 3px 3px 4px #000000; margin-bottom: 5px; width: 100%; margin-left: 40px;}
+.tecno2 {font-size:32px;margin-top:2px; color: #FFF; text-shadow: 3px 3px 4px #000000;  margin-left: 110px;}
+
+
+.layout { display:grid;grid-template-columns:304px 1fr; color: #111; }
+.izq{ position: relative;}
+.izq2 {width: 300px; height: 850px; background-color: var(--azul-claro); border-top-right-radius:50px; display: flex; flex-direction: column; justify-content: flex-start; position: absolute; top:-47px;}
+.right{width: 494px; height: 803px; color: #111; }
+
+
+
+.foto{width: 190px; height: 190px; margin-top: 30px; margin-left: 55px; margin-bottom: 10px;}
+.foto img{ width: 100%; height: 100%; border-radius: 50%; border: 1px solid black;}
+.nombre{font-size: 18px; font-weight: bold; margin-left: 26px; margin-top: 15px; text-align: center; width: 248px;}
+
+
+hr{ width: 248px; margin-top: 20px; margin-bottom: 20px; border: 0;
+  height: 2px; background-color: #1a4b8c; box-shadow: 0 3px 0 0 #1a4b8c,  0 -3px 0 0 #1a4b8c; 
+}
+
+.titulo { font-size: 22px; font-weight:bold; width: 248px; margin-left: 26px; width: 248px;}
+.texto {font-size: 16px; margin-left: 26px; width: 248px; margin-top: 5px; text-align: justify;}
+.datosc {margin-left: 26px; margin-top: 15px;}
+.alinearc{ display: flex;  align-items: flex-start;}
+.textoc{font-size: 16px; font-weight: bold; margin-left: 10px; width: 216px;}
+
+.titulob { background-color: var(--azul-oscuro); color: #FFF; margin-top: 20px; width: 450px; margin-left: 10px; padding: 6px 20px; font-size: 24px; font-weight:bold; }
+.subtitulob { font-size: 22px; font-weight:bold; margin-left: 10px; margin-top: 15px; width: 450px; display: flex;  align-items: flex-start;}
+.textob { font-size: 17px; margin-left: 40px; margin-top: 5px; width: 420px; text-align: justify;}
+
+
+
+.footer { width: 100%; height: 132px; background-color:var(--azul-oscuro); }
+
+
+@media print{
+  body{background:#fff}
+  .page{margin:0;border:none;border-radius:0}
+}
