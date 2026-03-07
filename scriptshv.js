@@ -67,14 +67,14 @@ form.addEventListener("submit", async (e) => {
     const fd = new FormData();
 
     // DATOS GENERALES
-    //fd.append("nombreCompleto", document.getElementById("nombreCompleto").value.trim());
     fd.append("nombres", document.getElementById("nombres").value.trim());
     fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim());
     fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim());
+    fd.append("celular", document.getElementById("celular").value.trim());
     fd.append("cargo", document.getElementById("cargo").value.trim());
     fd.append("condicionLaboral", document.getElementById("condicionLaboral").value);
-    fd.append("programa", document.getElementById("programaS").value);
-    fd.append("celular", document.getElementById("celular").value.trim());
+    fd.append("programa", document.getElementById("programas").value);
+
 
     // FORMACIÓN ACADÉMICA
     fd.append("gradoTitulo", document.getElementById("gradoTitulo").value.trim());
@@ -84,10 +84,6 @@ form.addEventListener("submit", async (e) => {
     // EXPERIENCIA DOCENTE
     fd.append("aniosExperiencia", document.getElementById("aniosExperiencia").value);
     fd.append("institucionesDocencia", document.getElementById("institucionesDocencia").value.trim());
-
-    // EMPLEABILIDAD
-    fd.append("empleabilidad", document.getElementById("empleabilidad").value);
-    fd.append("detalleEmpleabilidad", document.getElementById("detalleEmpleabilidad").value.trim());
 
     // DECLARACIÓN JURADA
     fd.append("declaracionJurada", "true");
@@ -101,22 +97,47 @@ form.addEventListener("submit", async (e) => {
     if (foto) fd.append("foto", foto, foto.name);
 
     // ENVÍO (se activará cuando pongamos el webhook real)
-    if (N8N_WEBHOOK_URL.includes("REEMPLAZAR")) {
-      statusEl.textContent = "Formulario listo (aún no conectado a servidor).";
-      sendBtn.disabled = false;
-      return;
-    }
+//    if (N8N_WEBHOOK_URL.includes("REEMPLAZAR")) {
+//      statusEl.textContent = "Formulario listo (aún no conectado a servidor).";
+//      sendBtn.disabled = false;
+//      return;
+//    }
 
     const res = await fetch(N8N_WEBHOOK_URL, {
       method: "POST",
       body: fd
     });
 
-    if (!res.ok) throw new Error("Error al enviar datos");
+   const payload = await res.json().catch(() => ({}));
 
-    statusEl.textContent = "Datos enviados correctamente.";
-    form.reset();
-    previewWrap.style.display = "none";
+   if (!res.ok) {
+     throw new Error(payload?.message || "Error al enviar datos");
+   }
+
+   // Construir parámetros para success.html
+   const qp = new URLSearchParams({
+     nombres: document.getElementById("nombres").value.trim(),
+     ap: document.getElementById("apellidoPaterno").value.trim(),
+     am: document.getElementById("apellidoMaterno").value.trim(),
+     cargo: document.getElementById("cargo").value.trim(),
+     cond: document.getElementById("condicionLaboral").value,
+     programa: document.getElementById("programas").value,
+     celular: document.getElementById("celular").value.trim(),
+     grado: document.getElementById("gradoTitulo").value.trim(),
+     esp: document.getElementById("especialidad").value.trim(),
+     inst: document.getElementById("institucionOtorgante").value.trim(),
+     anios: document.getElementById("aniosExperiencia").value,
+     instDoc: document.getElementById("institucionesDocencia").value.trim(),
+     foto_url: payload?.data?.foto_url || ""
+   });
+
+   // Limpiar formulario (opcional)
+   form.reset();
+   previewWrap.style.display = "none";
+
+   // Redireccionar a página de éxito
+   //window.location.href = 'success.html';
+   window.location.href = `success.html?${qp.toString()}`;
 
   } catch (err) {
     statusEl.textContent = "No se pudo enviar. Intente nuevamente.";
@@ -124,6 +145,3 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
-
-
-
