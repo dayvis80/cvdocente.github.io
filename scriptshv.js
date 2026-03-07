@@ -73,7 +73,7 @@ form.addEventListener("submit", async (e) => {
     fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim());
     fd.append("cargo", document.getElementById("cargo").value.trim());
     fd.append("condicionLaboral", document.getElementById("condicionLaboral").value);
-    fd.append("programa", document.getElementById("programa").value);
+    fd.append("programa", document.getElementById("programaS").value);
     fd.append("celular", document.getElementById("celular").value.trim());
 
     // FORMACIÓN ACADÉMICA
@@ -124,4 +124,5 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
