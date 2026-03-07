@@ -1,7 +1,7 @@
 /* ============================================
    CONFIGURACIÓN (se activará luego con n8n)
 ============================================ */
-const N8N_WEBHOOK_URL = "https://ingdayvis-n8n-private.hf.space/webhook-test/f8f108c5-7c38-4acd-aefe-3ad5b49b8182"; 
+const N8N_WEBHOOK_URL = "https://ingdayvis-n8n-private.hf.space/webhook-test/hvdocente"; 
 
 /* ============================================
    ELEMENTOS
@@ -124,3 +124,4 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
