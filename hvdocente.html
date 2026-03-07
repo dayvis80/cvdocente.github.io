@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro Hoja de Vida Docente</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="scriptshv.js" defer></script>
+</head>
+<body>
+  <div class="card">
+    <h1>Formulario Hoja de Vida Docente <span class="badge">IESTP "MNB"</span></h1>
+    <p class="hint">Complete los siguientes datos. La información será enviada a la unidad responsable para su publicación institucional.</p>
+
+    <form id="cvForm">
+      <h2>Datos generales</h2>
+      <div class="grid">
+        <div class="full">
+          <label for="foto">Foto (JPG/PNG)</label>
+          <input id="foto" name="foto" type="file" accept="image/jpeg,image/png" />
+          <div class="hint">
+            Recomendado: 600×600 px, JPG/PNG, fondo claro. Peso sugerido: 300 KB – 1 MB.
+          </div>
+          <div class="preview" id="previewWrap" style="display:none;">
+            <img id="previewImg" alt="Vista previa" />
+            <div>
+              <div id="previewMeta" class="hint"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="dni">DNI:</label>
+          <input id="dni" name="dni" type="text" required />
+        </div>
+
+        <div>
+          <label for="nombres">Nombres</label>
+          <input id="nombres" name="nombres" type="text" required />
+        </div>
+
+        <div>
+          <label for="apellidoPaterno">Apellido paterno</label>
+          <input id="apellidoPaterno" name="apellidoPaterno" type="text" required>
+        </div>
+
+        <div>
+          <label for="apellidoMaterno">Apellido materno</label>
+          <input id="apellidoMaterno" name="apellidoMaterno" type="text" required>
+        </div>
+
+        <div>
+          <label for="celular">Número de celular</label>
+          <input id="celular" name="celular" type="tel" 
+                placeholder="Ejm: 987654321"
+                pattern="[0-9]{9}" 
+                required>
+        </div>
+
+        <div>
+          <label for="email">Correo Electrónico</label>
+          <input id="email" name="email" type="text" required>
+        </div>
+
+
+        <div>
+          <label for="cargo">Cargo</label>
+          <select id="cargo" name="cargo" required>
+            <option value="">Seleccione</option>
+            <option value="Docente">Docente</option>
+            <option value="Administrativo">Administrativo</option>
+          </select>
+
+         </div>
+
+        <div>
+          <label for="condicionLaboral">Condición laboral</label>
+          <select id="condicionLaboral" name="condicionLaboral" required>
+            <option value="">Seleccione</option>
+            <option value="Nombrado">Nombrado</option>
+            <option value="Contratado">Contratado</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="programas">Programa(s) de estudio</label>
+          <select id="programas" name="programas" required>
+            <option value="Asistencia Administrativa">Asistencia Administrativa</option>
+            <option value="Contabilidad">Contabilidad</option>
+            <option value="Desarrollo de Sistemas de Información">Desarrollo de Sistemas de Información</option>
+            <option value="Enfermera Técnica">Enfermera Técnica</option>
+            <option value="Explotación Minera">Explotación Minera</option>
+            <option value="Laboratorio Clínico y Anatomía Patológica">Laboratorio Clínico y Anatomía Patológica</option>
+            <option value="Mecánica de Producción Industrial">Mecánica de Producción Industrial</option>
+            <option value="Mecatrónica Automotriz">Mecatrónica Automotriz</option>
+            <option value="Prótesis Dental">Prótesis Dental</option>
+            <option value="Empleabilidad">Prótesis Dental</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label for="perfilprofesional">Perfil Profesional (max 250 caracteres)</label>
+          <textarea id="perfilprofesional" name="perfilprofesional" placeholder="Describa su perfil profesional" maxlength="250" required></textarea>
+        </div>
+       
+
+      </div>
+
+      <h2>Formación académica</h2>
+      <div class="grid">
+          <div>
+          <label for="gradoTitulo">Grado Académico</label>
+          <select id="gradoTitulo" name="gradoTitulo" required>
+            <option value="">Seleccione</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Maestria">Maestría</option>
+            <option value="Titulado">Titulado/Profesional</option>
+            <option value="Bachiller">Bachiller</option>
+            <option value="Profesor">Titulo de Profesor</option>            
+            <option value="Tecnico">Técnico Profesional</option>
+            <option value="Sespecialidad">Segunda Especialidad</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="especialidad">Especialidad</label>
+          <input id="especialidad" name="especialidad" type="text" required />
+        </div>
+
+
+        <div>
+          <label for="maestria">Grado de Maestria</label>
+          <input id="maestria" name="maestria" type="text" />
+        </div>
+
+        <div>
+          <label for="doctorado">Grado de Doctor</label>
+          <input id="doctorado" name="doctorado" type="text" />
+        </div>
+
+        <div class="full">
+          <label for="institucionOtorgante">Institución otorgante</label>
+          <input id="institucionOtorgante" name="institucionOtorgante" type="text" required />
+        </div>
+      </div>
+
+      <h2>Experiencia Docente</h2>
+      <div class="grid">
+        <div>
+          <label for="aniosExperiencia">Años de experiencia</label>
+          <input id="aniosExperiencia" name="aniosExperiencia" type="number" min="0" max="60" required />
+        </div>
+
+        <div class="full">
+          <label for="institucionesDocencia">Instituciones donde ha ejercido docencia (máximo 5)</label>
+          <textarea id="institucionesDocencia" name="institucionesDocencia" placeholder="Lista de instituciones (una por línea)" required></textarea>
+        </div>
+      </div>
+
+      <h2>Capacitación</h2>
+      <div class="grid">
+        <div class="full">
+          <label for="capacitacion">Diplomados, Especialización, Cursos (máximo 5)</label>
+          <textarea id="capacitacion" name="capacitacion" placeholder="Lista los diplomados o cursos mas importantes (una por línea)" required></textarea>
+        </div>
+      </div>
+
+      <h2>Declaración Jurada Digital</h2>
+
+      <div class="declaracion-wrap">
+        <input type="checkbox" id="declaracionJurada" required>
+        <label for="declaracionJurada">
+          Acepto que la información proporcionada es verdadera y sujeta a fiscalización institucional conforme a la normativa vigente.
+        </label>
+      </div>
+      <div class="actions">
+        <button id="sendBtn" type="submit">Registrar</button>
+        <span class="status" id="status"></span>
+      </div>
+    </form>
+  </div>
