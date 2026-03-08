@@ -67,24 +67,36 @@ form.addEventListener("submit", async (e) => {
     const fd = new FormData();
 
     // DATOS GENERALES
+    fd.append("dni", document.getElementById("dni").value.trim());
     fd.append("nombres", document.getElementById("nombres").value.trim());
     fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim());
     fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim());
     fd.append("celular", document.getElementById("celular").value.trim());
+    fd.append("email", document.getElementById("email").value.trim());
+
+     // DATOS DOCENTE
     fd.append("cargo", document.getElementById("cargo").value.trim());
     fd.append("condicionLaboral", document.getElementById("condicionLaboral").value);
     fd.append("programa", document.getElementById("programas").value);
+    fd.append("perfil", document.getElementById("perfilprofesional").value);
 
 
     // FORMACIÓN ACADÉMICA
     fd.append("gradoTitulo", document.getElementById("gradoTitulo").value.trim());
     fd.append("especialidad", document.getElementById("especialidad").value.trim());
     fd.append("institucionOtorgante", document.getElementById("institucionOtorgante").value.trim());
+    fd.append("maestria", document.getElementById("maestria").value.trim());
+    fd.append("doctorado", document.getElementById("doctorado").value.trim());
 
+     
     // EXPERIENCIA DOCENTE
     fd.append("aniosExperiencia", document.getElementById("aniosExperiencia").value);
     fd.append("institucionesDocencia", document.getElementById("institucionesDocencia").value.trim());
 
+    // CAPACITACIÓN DOCENTE
+    fd.append("capacitacion", document.getElementById("capacitacion").value.trim());
+
+     
     // DECLARACIÓN JURADA
     fd.append("declaracionJurada", "true");
 
@@ -116,18 +128,24 @@ form.addEventListener("submit", async (e) => {
 
    // Construir parámetros para success.html
    const qp = new URLSearchParams({
+     dni: document.getElementById("dni").value.trim(),
      nombres: document.getElementById("nombres").value.trim(),
      ap: document.getElementById("apellidoPaterno").value.trim(),
      am: document.getElementById("apellidoMaterno").value.trim(),
+     celular: document.getElementById("celular").value.trim(),
+     email: document.getElementById("email").value.trim(),    
      cargo: document.getElementById("cargo").value.trim(),
      cond: document.getElementById("condicionLaboral").value,
      programa: document.getElementById("programas").value,
-     celular: document.getElementById("celular").value.trim(),
+     perfil: document.getElementById("perfilprofesional").value,      
      grado: document.getElementById("gradoTitulo").value.trim(),
      esp: document.getElementById("especialidad").value.trim(),
      inst: document.getElementById("institucionOtorgante").value.trim(),
+     maestria: document.getElementById("maestria").value.trim(),
+     doctorado: document.getElementById("doctorado").value.trim(),      
      anios: document.getElementById("aniosExperiencia").value,
-     instDoc: document.getElementById("institucionesDocencia").value.trim(),
+     expdocentia: document.getElementById("institucionesDocencia").value.trim(),
+     capacitacion: document.getElementById("capacitacion").value.trim(),      
      foto_url: payload?.data?.foto_url || ""
    });
 
@@ -145,3 +163,4 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
