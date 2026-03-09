@@ -68,11 +68,11 @@ form.addEventListener("submit", async (e) => {
 
     // DATOS GENERALES
     fd.append("dni", document.getElementById("dni").value.trim());
-    fd.append("nombres", document.getElementById("nombres").value.trim());
-    fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim());
-    fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim());
+    fd.append("nombres", document.getElementById("nombres").value.trim().toUpperCase());
+    fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim().toUpperCase());
+    fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim().toUpperCase());
     fd.append("celular", document.getElementById("celular").value.trim());
-    fd.append("email", document.getElementById("email").value.trim());
+    fd.append("email", document.getElementById("email").value.trim().toLowerCase());
 
      // DATOS DOCENTE
     fd.append("cargo", document.getElementById("cargo").value.trim());
@@ -163,4 +163,5 @@ form.addEventListener("submit", async (e) => {
     sendBtn.disabled = false;
   }
 });
+
 
