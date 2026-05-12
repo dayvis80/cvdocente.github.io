@@ -1,8 +1,8 @@
 /* ============================================
    CONFIGURACIÓN (se activará luego con n8n)
 ============================================ */
-//const N8N_WEBHOOK_URL = "https://ingdayvis-n8n-private.hf.space/webhook-test/hvdocente"; 
-const N8N_WEBHOOK_URL = "https://n8n.iesptecnojuliaca.edu.pe/webhook-test/hvdocente";
+const N8N_WEBHOOK_URL = "https://ingdayvis-n8n-private.hf.space/webhook-test/hvdocente"; 
+//const N8N_WEBHOOK_URL = "https://n8n.iesptecnojuliaca.edu.pe/webhook-test/hvdocente";
 /* ============================================
    ELEMENTOS
 ============================================ */
