@@ -78,7 +78,7 @@ form.addEventListener("submit", async (e) => {
     fd.append("cargo", document.getElementById("cargo").value.trim());
     fd.append("condicionLaboral", document.getElementById("condicionLaboral").value);
     fd.append("programa", document.getElementById("programas").value);
-    fd.append("perfil", document.getElementById("perfilprofesional").value);
+    //fd.append("perfil", document.getElementById("perfilprofesional").value);
 
 
     // FORMACIÓN ACADÉMICA
@@ -137,7 +137,7 @@ form.addEventListener("submit", async (e) => {
      cargo: document.getElementById("cargo").value.trim(),
      cond: document.getElementById("condicionLaboral").value,
      programa: document.getElementById("programas").value,
-     perfil: document.getElementById("perfilprofesional").value,      
+     //perfil: document.getElementById("perfilprofesional").value,      
      grado: document.getElementById("gradoTitulo").value.trim(),
      esp: document.getElementById("especialidad").value.trim(),
      inst: document.getElementById("institucionOtorgante").value.trim(),
