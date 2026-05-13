@@ -83,10 +83,10 @@ form.addEventListener("submit", async (e) => {
 
     // FORMACIÓN ACADÉMICA
     fd.append("gradoTitulo", document.getElementById("gradoTitulo").value.trim());
-    fd.append("especialidad", document.getElementById("especialidad").value.trim());
-    fd.append("institucionOtorgante", document.getElementById("institucionOtorgante").value.trim());
-    fd.append("maestria", document.getElementById("maestria").value.trim());
-    fd.append("doctorado", document.getElementById("doctorado").value.trim());
+    fd.append("especialidad", document.getElementById("especialidad").value.trim().toUpperCase());
+    fd.append("institucionOtorgante", document.getElementById("institucionOtorgante").value.trim().toUpperCase());
+    fd.append("maestria", document.getElementById("maestria").value.trim().toUpperCase());
+    fd.append("doctorado", document.getElementById("doctorado").value.trim().toUpperCase());
 
      
     // EXPERIENCIA DOCENTE
