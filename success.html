@@ -29,7 +29,7 @@
 <body>
   <div class="card">
     <h1 class="success-title">REGISTRO CV DOCENTE EXITOSO</h1>
-    <p class="success-sub">Se registro correctamente sus datos. Guarde o revise el resumen.</p>
+    <p class="success-sub">Se registro correctamente sus datos. Se remitio su Hoja de Vida al celular registrado.</p>
 
     <div class="sheet" id="sheet"></div>
 
@@ -45,6 +45,7 @@
 
     // Campos a mostrar (ordenados)
     const rows = [
+      ["Nombres", params.get("dni")],
       ["Nombres", params.get("nombres")],
       ["Apellido paterno", params.get("ap")],
       ["Apellido materno", params.get("am")],
