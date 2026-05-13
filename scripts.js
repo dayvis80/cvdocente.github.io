@@ -67,18 +67,18 @@ form.addEventListener("submit", async (e) => {
     const fd = new FormData();
 
     // DATOS GENERALES
-    fd.append("nombres", document.getElementById("nombreCompleto").value.trim());
-    fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim());
-    fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim());
+    fd.append("nombres", document.getElementById("nombreCompleto").value.trim().toUpperCase());
+    fd.append("apellido_paterno", document.getElementById("apellidoPaterno").value.trim().toUpperCase());
+    fd.append("apellido_materno", document.getElementById("apellidoMaterno").value.trim().toUpperCase());
     fd.append("cargo", document.getElementById("cargo").value.trim());
-    fd.append("condicionLaboral", document.getElementById("condicionLaboral").value);
+    fd.append("condicionLaboral", document.getElementById("condicionLaboral").value.toUpperCase());
     fd.append("programa", document.getElementById("programas").value);
     fd.append("celular", document.getElementById("celular").value.trim());
 
     // FORMACIÓN ACADÉMICA
     fd.append("gradoTitulo", document.getElementById("gradoTitulo").value.trim());
-    fd.append("especialidad", document.getElementById("especialidad").value.trim());
-    fd.append("institucionOtorgante", document.getElementById("institucionOtorgante").value.trim());
+    fd.append("especialidad", document.getElementById("especialidad").value.trim().toUpperCase());
+    fd.append("institucionOtorgante", document.getElementById("institucionOtorgante").value.trim().toUpperCase());
 
     // EXPERIENCIA DOCENTE
     fd.append("aniosExperiencia", document.getElementById("aniosExperiencia").value);
