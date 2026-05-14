@@ -40,12 +40,11 @@
   </div>
 
   <script>
-    
     const params = new URLSearchParams(window.location.search);
 
-    // Campos a mostrar (ordenados)
+    // Datos correctos
     const rows = [
-      ["Nombres", params.get("dni")],
+      ["DNI", params.get("dni")],
       ["Nombres", params.get("nombres")],
       ["Apellido paterno", params.get("ap")],
       ["Apellido materno", params.get("am")],
@@ -58,16 +57,15 @@
       ["Institución otorgante", params.get("inst")],
       ["Años de experiencia", params.get("anios")],
       ["Instituciones de docencia", params.get("instDoc")],
-      ["Foto (URL)", params.get("foto_url")]
+      ["Capacitación", params.get("cap")],
     ];
 
-    // Render tabla
+    // FOTO
+    const fotoUrl = params.get("foto_url");
+    
+    // RENDER TABLA
     let html = `<table>`;
-    html += `
-      <div id="fotoBox" style="margin:12px 0; display:none;">
-        <div style="font-weight:650; margin-bottom:6px;">Foto</div>
-        <img id="fotoImg" alt="Foto del docente" style="max-width:160px; border-radius:12px; border:1px solid #d8dbe6;">
-      </div>`;
+    
     for (const [k, v] of rows) {
       const value = (v ?? "").trim();
       html += `
@@ -76,10 +74,48 @@
           <td>${value ? escapeHtml(value) : "-"}</td>
         </tr>`;
     }
-    html += `</table>`;
-    document.getElementById("sheet").innerHTML = html;
 
-    // Descargar JSON
+    html += `</table>`;
+    
+    // INSERTAR TABLA
+    document.getElementById("sheet").innerHTML = html;
+    
+    // MOSTRAR FOTO
+    if (fotoUrl) {
+      const img = document.createElement("img");
+      img.src = fotoUrl;
+      img.style.maxWidth = "160px";
+      img.style.borderRadius = "12px";
+      img.style.border = "1px solid #d8dbe6";
+
+      const box = document.createElement("div");
+      box.style.margin = "12px 0";
+      box.innerHTML = `<div style="font-weight:650; margin-bottom:6px;">Foto del docente</div>`;
+      box.appendChild(img);
+    
+      document.getElementById("sheet").prepend(box);
+    }
+  
+    // RESPUESTA DEL WEBHOOK
+    const response = params.get("response");
+
+    if (response) {
+      const respBox = document.createElement("div");
+      respBox.style.marginTop = "16px";
+      respBox.style.padding = "10px";
+      respBox.style.borderRadius = "10px";
+      respBox.style.background = "#eef6ff";
+      respBox.style.border = "1px solid #cfe3ff";
+    
+      respBox.innerHTML = `
+        <strong>Respuesta del sistema:</strong><br>
+        ${escapeHtml(response)}
+      `;
+    
+      document.querySelector(".card").appendChild(respBox);
+    }
+
+    // JSON DOWNLOAD
     document.getElementById("downloadJson").addEventListener("click", (e) => {
       e.preventDefault();
       const obj = {};
@@ -94,13 +130,14 @@
     });
 
     function escapeHtml(str) {
-      return str
+      return (str || "")
+        .toString()
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
-    }
+    }  
   </script>
 </body>
 
