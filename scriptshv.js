@@ -56,11 +56,14 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   statusEl.textContent = "";
   sendBtn.disabled = true;
-
+  sendBtn.textContent = "Validando datos...";               // se agrego esta liena
+  statusEl.textContent = "Procesando formulario...";         // se agrego esta liena
+   
   // Declaración jurada obligatoria
   if (!document.getElementById("declaracionJurada").checked) {
     alert("Debe aceptar la Declaración Jurada para continuar.");
     sendBtn.disabled = false;
+    sendBtn.textContent = "Registrar";  // se agrego esta liena
     return;
   }
 
@@ -115,13 +118,15 @@ form.addEventListener("submit", async (e) => {
 //      sendBtn.disabled = false;
 //      return;
 //    }
-
+    statusEl.textContent = "Enviando datos al servidor...";  // Se agrego esta linea
     const res = await fetch(N8N_WEBHOOK_URL, {
       method: "POST",
       body: fd
     });
-
+    statusEl.textContent = "Procesando respuesta del sistema...";  // Se agrego esta Linea
+     
    const payload = await res.json().catch(() => ({}));
+   statusEl.textContent = payload.mensaje || "Respuesta recibida del servidor";  // Se agrego esta linea
 
    if (!res.ok) {
      throw new Error(payload?.message || "Error al enviar datos");
@@ -159,7 +164,10 @@ form.addEventListener("submit", async (e) => {
    window.location.href = `success.html?${qp.toString()}`;
 
   } catch (err) {
-    statusEl.textContent = "No se pudo enviar. Intente nuevamente.";
+    //statusEl.textContent = "No se pudo enviar. Intente nuevamente.";
+   statusEl.textContent = "❌ Error al enviar. Intente nuevamente.";
+   sendBtn.disabled = false;
+   sendBtn.textContent = "Registrar";
   } finally {
     sendBtn.disabled = false;
   }
